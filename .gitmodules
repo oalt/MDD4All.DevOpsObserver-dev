@@ -1,3 +1,12 @@
 [submodule "src/MDD4All.Bitbucket.DataModels"]
 	path = src/MDD4All.Bitbucket.DataModels
 	url = https://github.com/oalt/MDD4All.Bitbucket.DataModels.git
+[submodule "src/MDD4All.DevOpsObserver.DataModels"]
+	path = src/MDD4All.DevOpsObserver.DataModels
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.DataModels.git
+[submodule "src/MDD4All.DevOpsObserver.DataProviders.Bitbucket"]
+	path = src/MDD4All.DevOpsObserver.DataProviders.Bitbucket
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.DataProviders.Bitbucket.git
+[submodule "src/MDD4All.DevOpsObserver.DataProviders.Contracts"]
+	path = src/MDD4All.DevOpsObserver.DataProviders.Contracts
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.DataProviders.Contracts.git
