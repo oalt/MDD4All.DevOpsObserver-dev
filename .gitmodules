@@ -1,0 +1,3 @@
+[submodule "src/MDD4All.Bitbucket.DataModels"]
+	path = src/MDD4All.Bitbucket.DataModels
+	url = https://github.com/oalt/MDD4All.Bitbucket.DataModels.git
