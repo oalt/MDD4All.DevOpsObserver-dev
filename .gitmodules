@@ -10,3 +10,15 @@
 [submodule "src/MDD4All.DevOpsObserver.DataProviders.Contracts"]
 	path = src/MDD4All.DevOpsObserver.DataProviders.Contracts
 	url = https://github.com/oalt/MDD4All.DevOpsObserver.DataProviders.Contracts.git
+[submodule "src/MDD4All.DevOpsObserver.DataProviders.Integration"]
+	path = src/MDD4All.DevOpsObserver.DataProviders.Integration
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.DataProviders.Integration.git
+[submodule "src/MDD4All.DevOpsObserver.Apps.BlazorServer"]
+	path = src/MDD4All.DevOpsObserver.Apps.BlazorServer
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.Apps.BlazorServer.git
+[submodule "src/MDD4All.DevOpsObserver.Views"]
+	path = src/MDD4All.DevOpsObserver.Views
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.Views.git
+[submodule "src/MDD4All.DevOpsObserver.ViewModels"]
+	path = src/MDD4All.DevOpsObserver.ViewModels
+	url = https://github.com/oalt/MDD4All.DevOpsObserver.ViewModels.git
