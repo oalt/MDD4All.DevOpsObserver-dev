@@ -45,7 +45,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hue", "Hue", "{C5B23520-8B0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{282A30DF-FB73-4909-97DC-2CDF8F6EF0EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHueStatusLightController", "MDD4All.DevOpsObserver.StatusLightControl.Hue\src\TestHueStatusLightController\TestHueStatusLightController.csproj", "{C581D0F1-433E-4B0D-A5C7-B4D705779BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestHueStatusLightController", "MDD4All.DevOpsObserver.StatusLightControl.Hue\src\TestHueStatusLightController\TestHueStatusLightController.csproj", "{C581D0F1-433E-4B0D-A5C7-B4D705779BF2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{A9CFE0FF-7F9A-4B15-99B2-419AD4466722}"
+	ProjectSection(SolutionItems) = preProject
+		..\.github\workflows\devopsobserver-integration-dev-build.yml = ..\.github\workflows\devopsobserver-integration-dev-build.yml
+		..\.github\workflows\publish-snapshot.yml = ..\.github\workflows\publish-snapshot.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
