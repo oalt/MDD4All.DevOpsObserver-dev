@@ -1,0 +1,68 @@
+name: Build snapshot
+
+on:
+  workflow_dispatch:
+     
+jobs:
+  build:
+
+    runs-on: windows-2019
+    env:
+      SOLUTION_NAME: MDD4All.DevOpsObserver-dev.sln
+      OUTPUT_PATH: .\output\DevOpsObserver\
+
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v3
+      with:
+        token: ${{secrets.ACCESS_TOKEN}}
+        submodules: true
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    - name: Set version number from date using PS
+      uses: Amadevus/pwsh-script@v2
+      id: date-version
+      with:
+        script: |
+            ([datetime]::now).tostring("yyyy.M.d")
+
+    - name: Set version variable from date and build number
+      env: 
+        DATE_VERSION: ${{steps.date-version.outputs.result}}
+      run: echo ("VERSION=" + $env:DATE_VERSION + "." + $env:GITHUB_RUN_NUMBER) >> $env:GITHUB_ENV
+
+    - name: Echo version number
+      run: echo $env:VERSION
+
+    - name: Publish
+      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
+
+    - name: Create output directories
+      run: |
+        mkdir output
+        mkdir ${{env.OUTPUT_PATH}}
+        mkdir artifacts
+
+    - name: Copy app files
+      run: |
+        robocopy /E .\src\MDD4All.DevOpsObserver.Apps.BlazorServer\src\MDD4All.DevOpsObserver.Apps.BlazorServer\bin\Release\net6.0\win-x86\ ${{env.OUTPUT_PATH}}
+        if ($lastexitcode -lt 8) { exit 0 } else { exit 1 }
+
+    - name: Zip files
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        directory: output\DevOpsObserver\
+        filename: DevOpsObserver_${{env.VERSION}}.zip
+
+    - name: Copy zip file to dist directory
+      run: xcopy /y ${{env.OUTPUT_PATH}}DevOpsObserver_${{env.VERSION}}.zip .\artifacts\
+
+    - name: Upload SpecIFicator artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: DevOpsObserver_${{env.VERSION}}
+        path: artifacts\*.zip
