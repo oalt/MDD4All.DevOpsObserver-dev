@@ -39,7 +39,7 @@ jobs:
       run: echo $env:VERSION
 
     - name: Publish
-      run: dotnet publish -p:PublishProfile=Win-x86 -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
+      run: dotnet publish -p:PublishProfile=Portable -c Release /p:Version=${{env.VERSION}} .\src\${{env.SOLUTION_NAME}}
 
     - name: Create output directories
       run: |
