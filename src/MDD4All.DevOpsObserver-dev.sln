@@ -53,6 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Pr
 		..\.github\workflows\publish-snapshot.yml = ..\.github\workflows\publish-snapshot.yml
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS", "MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS\src\MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS\MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS.csproj", "{84AF4E9D-C241-4C60-8926-5B9CA5D02539}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +117,10 @@ Global
 		{C581D0F1-433E-4B0D-A5C7-B4D705779BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C581D0F1-433E-4B0D-A5C7-B4D705779BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C581D0F1-433E-4B0D-A5C7-B4D705779BF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84AF4E9D-C241-4C60-8926-5B9CA5D02539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84AF4E9D-C241-4C60-8926-5B9CA5D02539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84AF4E9D-C241-4C60-8926-5B9CA5D02539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84AF4E9D-C241-4C60-8926-5B9CA5D02539}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -136,6 +142,7 @@ Global
 		{C5B23520-8B03-40A5-872D-8AF1AD38216D} = {6C4D634E-C7B3-402A-96A6-2962F26FA861}
 		{282A30DF-FB73-4909-97DC-2CDF8F6EF0EF} = {C5B23520-8B03-40A5-872D-8AF1AD38216D}
 		{C581D0F1-433E-4B0D-A5C7-B4D705779BF2} = {282A30DF-FB73-4909-97DC-2CDF8F6EF0EF}
+		{84AF4E9D-C241-4C60-8926-5B9CA5D02539} = {9A20C94A-B72E-4024-B38A-478995545A3A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F3DA6E80-AEDC-4284-B12C-B42E89624EF5}
