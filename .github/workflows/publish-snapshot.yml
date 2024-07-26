@@ -10,6 +10,7 @@ jobs:
     env:
       SOLUTION_NAME: MDD4All.DevOpsObserver-dev.sln
       OUTPUT_PATH: .\output\DevOpsObserver\
+      LCARS_OUTPUT_PATH: .\output\DevOpsObserverLCARS\
 
     steps:
     - name: Checkout repository and submodules
@@ -45,6 +46,7 @@ jobs:
       run: |
         mkdir output
         mkdir ${{env.OUTPUT_PATH}}
+        mkdir ${{env.LCARS_OUTPUT_PATH}}
         mkdir artifacts
 
     - name: Copy app files
@@ -52,16 +54,30 @@ jobs:
         robocopy /E .\src\MDD4All.DevOpsObserver.Apps.BlazorServer\src\MDD4All.DevOpsObserver.Apps.BlazorServer\bin\Release\net6.0\publish\ ${{env.OUTPUT_PATH}}
         if ($lastexitcode -lt 8) { exit 0 } else { exit 1 }
 
+    - name: Copy LCARS app files
+      run: |
+        robocopy /E .\src\MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS\src\MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS\bin\Release\net6.0\publish ${{env.LCARS_OUTPUT_PATH}}
+        if ($lastexitcode -lt 8) { exit 0 } else { exit 1 }
+
     - name: Zip files
       uses: thedoctor0/zip-release@0.7.1
       with:
-        directory: output\DevOpsObserver\
+        directory: ${{env.OUTPUT_PATH}}
         filename: DevOpsObserver_${{env.VERSION}}.zip
+
+    - name: Zip LCARS files
+      uses: thedoctor0/zip-release@0.7.1
+      with:
+        directory: ${{env.LCARS_OUTPUT_PATH}}
+        filename: DevOpsObserverLCARS_${{env.VERSION}}.zip
 
     - name: Copy zip file to dist directory
       run: xcopy /y ${{env.OUTPUT_PATH}}DevOpsObserver_${{env.VERSION}}.zip .\artifacts\
 
-    - name: Upload SpecIFicator artifact
+    - name: Copy LCARS zip file to dist directory
+      run: xcopy /y ${{env.LCARS_OUTPUT_PATH}}DevOpsObserverLCARS_${{env.VERSION}}.zip .\artifacts\
+
+    - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: DevOpsObserver_${{env.VERSION}}
