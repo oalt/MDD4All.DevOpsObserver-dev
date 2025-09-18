@@ -6,7 +6,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-2022
     env:
       SOLUTION_NAME: MDD4All.DevOpsObserver-dev.sln
       OUTPUT_PATH: .\output\DevOpsObserver\
@@ -78,7 +78,7 @@ jobs:
       run: xcopy /y ${{env.LCARS_OUTPUT_PATH}}DevOpsObserverLCARS_${{env.VERSION}}.zip .\artifacts\
 
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: DevOpsObserver_${{env.VERSION}}
         path: artifacts\*.zip
